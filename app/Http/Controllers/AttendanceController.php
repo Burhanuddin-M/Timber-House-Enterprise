@@ -93,6 +93,6 @@ $CanHalfDay = Employee::with(['attendance' => function ($query) use ($now) {
 
 
         $message = $employee->name . ' attendance is updated';
-        return redirect('Attendence.attendence')->with('success', $message);
+        return redirect('/attendence/getattendence')->with('success', $message);
     }
 }
