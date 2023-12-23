@@ -1,42 +1,34 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Factories;
 
 use App\Models\Attendance;
-use App\Models\Employee;
-use Carbon\Carbon;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-class AttendanceSeeder extends Seeder
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Attendance>
+ */
+class AttendanceFactory extends Factory
 {
     /**
-     * Run the database seeds.
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
      */
-    public function run(): void
+    public function definition(): array
     {
-        $employees = Employee::cursor();
-        foreach ($employees as $employee) {
-            $attendances = Attendance::factory(4)->for($employee)->create([
-                'base_amount' => $employee->salary_per_day,
-            ]);
-            $date = Carbon::now()->subDays(10);
-            foreach ($attendances as $attendance) {
-                $attendance->date = $date;
-                if ($attendance->type == Attendance::ABSENT) {
-                    $attendance->base_amount = 0;
-                    $attendance->total_amount = 0;
-                    $attendance->extra_hours = 0;
-                } else {
-                    if ($attendance->is_half_day) {
-                        $attendance->total_amount = $attendance->base_amount + ($attendance->extra_hours * ($employee->salary_per_day / 8));
-                    } else {
-                        $attendance->total_amount = ($attendance->base_amount + ($attendance->extra_hours * ($employee->salary_per_day / 8))) / 2;
-                    }
-                }
-                $attendance->save();
-                $date = $date->addDay();
-            }
+        $has_extra_time = fake()->randomElement([1, 0]);
+        $extra_hours = 0;
+        $total_amount = 0;
+        if ($has_extra_time) {
+            $extra_hours = fake()->numberBetween(1, 4);
+            $total_amount = fake()->numberBetween(10, 1000);
         }
+        return [
+            'type' => fake()->randomElement([Attendance::ABSENT, Attendance::PRESENT]),
+            'has_extra_time' => $has_extra_time,
+            'extra_hours' => $extra_hours,
+            'total_amount' => $total_amount,
+        ];
     }
 }
