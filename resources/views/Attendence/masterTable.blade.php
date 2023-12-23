@@ -59,6 +59,7 @@
             <thead>
                 <tr>
                     <th class="text-center">Employee</th>
+                    <th class="text-center">1/2</th>
                     <th class="text-center">P</th>
                     <th class="text-center">A</th>
                     <th class="text-center">Portfolio</th>
@@ -69,6 +70,7 @@
                 @foreach ($Employees as $employee)
                     <tr>
                         <td>{{ $employee->name }}</td>
+                        <td>{{ $employee->attendance->where('is_half_day', 1)->count() }}</td>
                         <td>{{ $employee->attendance->where('type', 'PRESENT')->count() }}</td>
                         <td>{{ $employee->attendance->where('type', 'ABSENT')->count() }}</td>
 
