@@ -15,17 +15,20 @@
 
 <body>
 
-    @if (session('success'))
+    @if (session('successadd'))
         <script>
             Swal.fire({
                 title: "Added!",
-                text: "{{ session('success') }}",
+                text: "{{ session('successadd') }}",
                 icon: "success"
             });
         </script>
     @endif
 
     <div class="container">
+        <button class="btn btn-primary">
+            <a href="{{ route('attendence.index') }}" class="text-white text-decoration-none">←</a>
+        </button>
         <div class="row">
             <!-- Add Employee Button -->
             <div class="col-6 text-right ms-auto">

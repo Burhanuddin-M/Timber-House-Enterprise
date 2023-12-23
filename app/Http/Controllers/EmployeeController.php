@@ -32,7 +32,7 @@ class EmployeeController extends Controller
 
         $Message = $request->name." is added Successfully";
 
-        return redirect('/attendence/addEmployee')->with('success',$Message);
+        return redirect('/attendence/addEmployee')->with('successadd',$Message);
     }
 
     public function PostEditEmployee(Request $request,$id)
@@ -55,7 +55,7 @@ class EmployeeController extends Controller
 
     $Message = $request->name." is Updated Successfully";
 
-        return redirect('addEmployee')->with('success',$Message);
+        return redirect('/attendence/addEmployee')->with('success',$Message);
    
     
 }
