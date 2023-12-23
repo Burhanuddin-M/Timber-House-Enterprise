@@ -102,7 +102,8 @@ class UniqueController extends Controller
             'total_overtime' => $total_overtime,
             'total_withdraw' => $total_withdraw,
             'total_present' => $total_present,
-            'date_withdraw' => $date_withdraw
+            'date_withdraw' => $date_withdraw,
+            'date'=>$date
         ]);
     }
 }
