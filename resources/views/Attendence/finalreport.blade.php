@@ -180,7 +180,7 @@
                 <tfoot>
                     <tr>
                         <td class="text-center @if ($employeeData->amount_portfolio < 0) text-danger @else text-success @endif">
-                            <h3>({{'₹ '. number_format(round($employeeData->amount_portfolio)) }})</h3>
+                            <h5>({{'₹ '. number_format(round($employeeData->amount_portfolio)) }})</h5>
                         </td>
                         <td class="text-center"><b>{{ $total_present }}</b></td>
                         <td class="text-center"><b>{{ $total_overtime }}</b></td>
