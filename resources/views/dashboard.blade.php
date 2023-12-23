@@ -95,11 +95,6 @@
 
     <div class="container">
         <h1>Timer House Enterprise</h1>
-        <div class="row">
-            <div class="col-12">
-                <h3 class="bg-primary text-white">Modules</h3>
-            </div>
-        </div>
 
         <div class="row mt-4">
             <!-- Documents Module Card -->
@@ -137,7 +132,7 @@
                 <div class="card">
                     <img src="https://cdn1.byjus.com/wp-content/uploads/2020/01/Online-free-math-calculator.jpg" height="200px"  alt="Products Image">
                     <div class="card-body text-center">
-                        <a href="{{route('calculator.index')}}" class="btn btn-primary">CF Calculator</a>
+                        <a href="{{route('calculator.index')}}"" class="btn btn-primary">CF Calculator</a>
                     </div>
                 </div>
             </div>
