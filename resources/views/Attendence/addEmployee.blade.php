@@ -125,7 +125,7 @@
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <label for="salary" class="form-label">Salary Per Hour</label>
+                                                    <label for="salary" class="form-label">Salary Per Day</label>
                                                     <input type="number" class="form-control" id="salary"
                                                         value="{{ $employee->salary_per_day }}" name="salary_per_day">
                                                 </div>
