@@ -87,7 +87,7 @@
                                     @else
                                         @if ($employee->attendance[0]->type == 'PRESENT')
                                             @if ($employee->attendance[0]->is_half_day)
-                                                <p class="text-success">Half Day</p>
+                                                <p class="text-dark">Half Day</p>
                                             @else
                                                 <p class="text-success">Present</p>
                                             @endif
