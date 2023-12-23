@@ -74,19 +74,22 @@ class UniqueController extends Controller
             ->get();
 
         $total_overtime = $attendance->sum('extra_hours');
-        $total_withdraw = Transaction::where('employee_id',$id)
-        ->whereDate('created_at', '>=', $start_date)
-        ->whereDate('created_at', '<=', $end_date)
-        ->where('type','DEBIT')
-        ->sum('amount');
+        $total_withdraw = Transaction::where('employee_id', $id)
+            ->whereDate('created_at', '>=', $start_date)
+            ->whereDate('created_at', '<=', $end_date)
+            ->where('type', 'DEBIT')
+            ->sum('amount');
 
-        $total_present = $attendance->where('type','PRESENT')->count('type');
+        $total_present_full_day = $attendance->where('type', 'PRESENT')->where('is_half_day', 0)->count('type');
+        $total_present_half_day = $attendance->where('type', 'PRESENT')->where('is_half_day', 1)->count('type');
 
-        $date_withdraw = Transaction::where('employee_id',$id)
-        ->whereDate('created_at', '>=', $start_date)
-        ->whereDate('created_at', '<=', $end_date)
-        ->where('type','DEBIT')
-        ->get();
+        $total_present = $total_present_full_day + ($total_present_half_day / 2);
+
+        $date_withdraw = Transaction::where('employee_id', $id)
+            ->whereDate('created_at', '>=', $start_date)
+            ->whereDate('created_at', '<=', $end_date)
+            ->where('type', 'DEBIT')
+            ->get();
 
 
 
@@ -97,9 +100,9 @@ class UniqueController extends Controller
             'start_date' => $start_date,
             'end_date' => $end_date,
             'total_overtime' => $total_overtime,
-            'total_withdraw'=> $total_withdraw,
-            'total_present'=> $total_present,
-            'date_withdraw'=>$date_withdraw
+            'total_withdraw' => $total_withdraw,
+            'total_present' => $total_present,
+            'date_withdraw' => $date_withdraw
         ]);
     }
 }

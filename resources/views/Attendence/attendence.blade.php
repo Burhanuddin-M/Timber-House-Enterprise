@@ -86,7 +86,12 @@
                                         </div>
                                     @else
                                         @if ($employee->attendance[0]->type == 'PRESENT')
-                                            <p class="text-success">Present</p>
+                                            @if ($employee->attendance[0]->is_half_day)
+                                                <p class="text-success">Half Day</p>
+                                            @else
+                                                <p class="text-success">Present</p>
+                                            @endif
+
                                         @else
                                             <p class="text-danger">Absent</p>
                                         @endif
@@ -106,7 +111,7 @@
                                         <p>NA</p>
                                     @endif
                                 </td>
-                                
+
                                 <td class="overtime-row" style="display:none;">
                                     <select class="form-select form-select-sm" id="numberSelect" name="hours">
                                         @for ($i = 0; $i <= 6; $i++)
@@ -121,7 +126,7 @@
                                         @endfor
                                     </select>
                                 </td>
-                                
+
                                 <td>
                                     @if (!(count($employee->attendance) > 0))
                                         <button type="submit" class="btn btn-sm bg-primary text-white">Save</button>
