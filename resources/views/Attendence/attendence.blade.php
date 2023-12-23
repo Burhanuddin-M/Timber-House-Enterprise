@@ -103,10 +103,12 @@
                                     <div class="form-check form-halfday d-inline-block">
                                         <input class="form-check-input attendance-halfday" type="checkbox"
                                             name="is_half_day" value="1"
-                                            id="attendanceSwitch_{{ $loop->index }}">
+                                            id="attendanceSwitch_{{ $loop->index }}"
+                                            onchange="handleHalfDayChange(this)">
                                         <label class="form-check-label"
                                             for="attendanceHalfday_{{ $loop->index }}"></label>
                                     </div>
+                                    
                                     @else
                                         <p>NA</p>
                                     @endif
@@ -149,6 +151,22 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
     <!-- Font Awesome Icons -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+
+    <script>
+        function handleHalfDayChange(checkbox) {
+            let overtimeRow = checkbox.closest('tr').querySelector('.overtime-row');
+            let overtimeHeader = document.querySelector('.overtime-header');
+    
+            if (checkbox.checked) {
+                overtimeRow.style.display = 'none';
+                overtimeHeader.style.display = 'none';
+            } else {
+                overtimeRow.style.display = 'table-cell';
+                overtimeHeader.style.display = 'table-cell';
+            }
+        }
+    </script>
+    
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
