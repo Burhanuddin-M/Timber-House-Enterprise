@@ -132,7 +132,7 @@
                                     <td>{{ Carbon::parse($attendance[0]['date'])->format('jS M Y') }}</td>
                                     <td class="fw-bold">
                                         @if ($attendance[0]['is_half_day'] == 1)
-                                            HD
+                                            1/2
                                         @else
                                             {{ $attendance[0]['type'] == 'PRESENT' ? 'P' : 'A' }}
                                         @endif
