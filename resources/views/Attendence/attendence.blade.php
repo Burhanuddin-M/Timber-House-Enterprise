@@ -35,13 +35,13 @@
 
         <!-- Table with Edit Column -->
         <div class="table-responsive">
-            <table class="table table-hover table-striped">
+            <table class="table table-hover table-striped" border="2">
                 <thead>
                     <tr>
                         <th>Status</th>
                         <th>Name</th>
                         <th>{{ \Carbon\Carbon::now()->format('jS') }}</th>
-                        <th class="halfday-header" style="display:none;">Half Day</th>
+                        <th class="halfday-header" style="display:none;">1/2</th>
                         <th class="overtime-header" style="display:none;">Overtime</th>
                         <th class="withdraw-header" style="display:none;">Withdraw</th>
                         <th>Submit</th>
@@ -87,7 +87,7 @@
                                     @else
                                         @if ($employee->attendance[0]->type == 'PRESENT')
                                             @if ($employee->attendance[0]->is_half_day)
-                                                <p class="text-dark">Half Day</p>
+                                                <p class="text-dark">1/2</p>
                                             @else
                                                 <p class="text-success">Present</p>
                                             @endif
@@ -96,7 +96,7 @@
                                             <p class="text-danger">Absent</p>
                                         @endif
                                     @endif
-                                </td>
+                                </td>   
 
                                 <td class="halfday-row" style="display:none;">
                                     @if ($CanHalfDay->contains($employee) && $employee->attendance->where('is_half_day', 1)->count() < 2)

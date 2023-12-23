@@ -55,7 +55,7 @@
     <div class="container">
         <h3 class="text-center">{{ \Carbon\Carbon::now()->format('jS F Y') }}</h3>
 
-        <table id="employeeTable" class="table table-hover table-striped">
+        <table id="employeeTable" class="table table-hover table-striped" border="2">
             <thead>
                 <tr>
                     <th class="text-center">Employee</th>
