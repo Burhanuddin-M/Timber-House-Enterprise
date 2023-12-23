@@ -32,6 +32,14 @@ Route::post('/login',[MyController::class,'PostLogin'])->name('Login');
 Route::get('/dashboard',[MyController::class,'dashboard'])->name('dashboard');
 
 
+
+//All the routes of the Attendence Moduleattendence
+Route::get('/calculator/index', function () {
+    return view('calculator.index');
+})->name('calculator.index');
+
+
+
 //All the routes of the Attendence Moduleattendence
 Route::get('/attendence/index', function () {
     return view('Attendence.index');
