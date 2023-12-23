@@ -13,10 +13,25 @@ class AttendanceController extends Controller
     public function attendence()
     {
         $employees = Employee::with(['attendance' => function ($query) {
-            $query = $query->where('date', Carbon::now()->format('Y-m-d'));
+            $query->where('date', Carbon::now()->format('Y-m-d'));
         }])->get();
+    
+        $now = Carbon::now();
 
-         return view('Attendence.attendence', compact('employees'));
+$CanHalfDay = Employee::with(['attendance' => function ($query) use ($now) {
+    $query->whereMonth('date', $now->month)
+        ->whereYear('date', $now->year)
+        ->where('is_half_day', 1);
+}])
+->get()
+->filter(function ($employee) {
+    return $edmployee->attendance->where('is_half_day', 1)->count() < 2;
+});
+
+    
+   
+    
+        return view('Attendence.attendence', compact('employees','CanHalfDay'));
     }
 
 
@@ -37,13 +52,16 @@ class AttendanceController extends Controller
                 'employee_id' => $id,
                 'type' => 'PRESENT',
                 'date' => $formattedDate,
-                'extra_hours'=>$request->hours,
-                'base_amount'=>$employee->salary_per_day
+                'is_half_day' => $request->is_half_day,
+                'extra_hours'=> $request->hours
             ]);
             if ($attendance->type == Attendance::PRESENT) {
                 $employee_salary = $employee->salary_per_day;
                 if ($request->has('hours') && !is_null($request->hours) && $request->hours > 0) {
                     $employee_salary = $employee_salary + (($employee->salary_per_day / 8) * $request->hours);
+                }
+                if ($attendance->is_half_day) {
+                    $employee_salary = $employee_salary / 2;
                 }
                 Transaction::create(
                     [
@@ -75,6 +93,6 @@ class AttendanceController extends Controller
 
 
         $message = $employee->name . ' attendance is updated';
-        return redirect('/attendence/getattendence')->with('success', $message);
+        return redirect('Attendence.attendence')->with('success', $message);
     }
 }

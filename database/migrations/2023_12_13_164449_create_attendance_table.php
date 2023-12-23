@@ -20,6 +20,7 @@ return new class extends Migration
             $table->decimal('base_amount', 10, 2)->default(00.0)->nullable();
             $table->boolean('has_extra_time')->nullable();
             $table->integer('extra_hours')->nullable();
+            $table->boolean('is_half_day')->default(false)->nullable();
             $table->decimal('total_amount', 10, 2)->default(00.0)->nullable();
 
             $table->timestamps();
