@@ -153,7 +153,7 @@
                                             -
                                         @endif
                                     </td>
-                                    
+
                                     @php
                                         array_shift($attendance);
                                     @endphp
@@ -194,6 +194,7 @@
                 dom: 'Bfrtip',
                 buttons: [{
                         extend: 'pdf',
+                        footer:true,
                         text: 'DOWNLOAD AS A PDF',
                         className: 'btn-pdf'
                     },
