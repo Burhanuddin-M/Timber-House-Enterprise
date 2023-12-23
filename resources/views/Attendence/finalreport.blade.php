@@ -109,7 +109,6 @@
         <h2 class="text-center text-primary">{{ $employeeData->name }}'s Report</h2>
         <div class="table-responsive">
             <table id="example" class="display nowrap">
-                <caption>Monthly savings</caption>
                 <thead>
                     <tr>
                         <th class="text-center">Date</th>
