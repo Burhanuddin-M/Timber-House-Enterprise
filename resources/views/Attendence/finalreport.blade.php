@@ -109,6 +109,7 @@
         <h2 class="text-center text-primary">{{ $employeeData->name }}'s Report</h2>
         <div class="table-responsive">
             <table id="example" class="display nowrap">
+                <caption>Monthly savings</caption>
                 <thead>
                     <tr>
                         <th class="text-center">Date</th>
@@ -178,8 +179,8 @@
 
                 <tfoot>
                     <tr>
-                        <td class="text-center">
-                            <h5>Portfolio   ({{number_format(round($employeeData->amount_portfolio)) }})</h5>
+                        <td class="text-center @if ($employeeData->amount_portfolio < 0) text-danger @else text-success @endif">
+                            <h3>({{'₹ '. number_format(round($employeeData->amount_portfolio)) }})</h3>
                         </td>
                         <td class="text-center"><b>{{ $total_present }}</b></td>
                         <td class="text-center"><b>{{ $total_overtime }}</b></td>
