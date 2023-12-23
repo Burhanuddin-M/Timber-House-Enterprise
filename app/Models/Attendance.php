@@ -25,6 +25,7 @@ class Attendance extends Model
         'has_extra_time',
         'extra_hours',
         'total_amount',
+        'is_half_day'
     ];
 
     //HIDDEN
