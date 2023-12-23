@@ -25,7 +25,7 @@ $CanHalfDay = Employee::with(['attendance' => function ($query) use ($now) {
 }])
 ->get()
 ->filter(function ($employee) {
-    return $edmployee->attendance->where('is_half_day', 1)->count() < 2;
+    return $employee->attendance->where('is_half_day', 1)->count() < 2;
 });
 
     
