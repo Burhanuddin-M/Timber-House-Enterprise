@@ -121,7 +121,7 @@
                                 </td>
                                 <td class="withdraw-row" style="display:none;">
                                     <select class="form-select form-select-sm" id="amount" name="withdraw">
-                                        @for ($value = 0; $value <= 100000; $value += 1000)
+                                        @for ($value = 0; $value <= 100000; $value += 500)
                                             <option value="{{ $value }}">{{ $value }}</option>
                                         @endfor
                                     </select>
