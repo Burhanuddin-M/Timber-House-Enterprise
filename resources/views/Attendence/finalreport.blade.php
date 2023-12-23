@@ -178,7 +178,9 @@
 
                 <tfoot>
                     <tr>
-                        <td class="text-center"><b>Total Value</b></td>
+                        <td class="text-center">
+                            <h5>Portfolio   ({{number_format(round($employeeData->amount_portfolio)) }})</h5>
+                        </td>
                         <td class="text-center"><b>{{ $total_present }}</b></td>
                         <td class="text-center"><b>{{ $total_overtime }}</b></td>
                         <td class="text-center"><b>{{ $total_withdraw }}</b></td>
