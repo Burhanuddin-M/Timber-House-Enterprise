@@ -192,41 +192,43 @@
 
         <script>
             $(document).ready(function() {
-                $('#example').DataTable({
-                    dom: 'Bfrtip',
-                    buttons: [{
-                            extend: 'pdf',
-                            footer: true,
-                            text: 'DOWNLOAD AS A PDF',
-                            className: 'btn-pdf',
-                            customize: function(doc) {
-                                // Add custom header to the PDF
-                                doc.content.unshift({
-                                    text: 'Report of ' + '{{ $employeeData->name }}' +
-                                        ' as per ' + '{{ $date }}',
-                                    margin: [15, 15, 0, 0],
-                                    fontSize: 12,
-                                    bold: true
-                                });
-                            }
-                        },
-                        {
-                            extend: 'print',
-                            text: 'CLICK TO PRINT',
-                            className: 'btn-print',
-                            customize: function(win) {
-                                // Add custom header to the print version
-                                $(win.document.body).find('h2').text('Employee Report - ' +
-                                    '{{ $employeeData->name }}');
-                            }
-                        }
-                    ],
-                    searching: false, // Disable search feature
-                    pageLength: -1, // Display all records initially
-                    footer: true,
-                    ordering: false,
-                });
-            });
+    $('#example').DataTable({
+        dom: 'Bfrtip',
+        buttons: [{
+                extend: 'pdf',
+                footer: true,
+                text: 'DOWNLOAD AS A PDF',
+                className: 'btn-pdf',
+                filename: 'Report_of_{{ $employeeData->name }}_{{ $date }}', // Custom filename
+                customize: function(doc) {
+                    // Add custom header to the PDF
+                    doc.content.unshift({
+                        text: 'Report of ' + '{{ $employeeData->name }}' +
+                            ' as per ' + '{{ $date }}',
+                        margin: [15, 15, 0, 0],
+                        fontSize: 12,
+                        bold: true
+                    });
+                }
+            },
+            {
+                extend: 'print',
+                text: 'CLICK TO PRINT',
+                className: 'btn-print',
+                customize: function(win) {
+                    // Add custom header to the print version
+                    $(win.document.body).find('h2').text('Employee Report - ' +
+                        '{{ $employeeData->name }}');
+                }
+            }
+        ],
+        searching: false, // Disable search feature
+        pageLength: -1, // Display all records initially
+        footer: true,
+        ordering: false,
+    });
+});
+
         </script>
 
 
