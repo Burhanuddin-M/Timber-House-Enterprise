@@ -10,6 +10,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+<style>
+    .form-check.form-halfday {
+        display: flex;
+        align-items: center;
+        margin:0px auto;
+        /* Vertically center items */
+    }
+
+    .form-check-input.attendance-halfday {
+        /* Increase the size of the checkbox */
+        transform: scale(1.5);
+        /* Adjust the margin as needed */
+    }
+</style>
 
 <body class="bg-light"><br>
 
@@ -35,7 +49,7 @@
 
         <!-- Table with Edit Column -->
         <div class="table-responsive">
-            <table class="table table-hover table-striped" border="2">
+            <table class="table" border="2">
                 <thead>
                     <tr>
                         <th>Status</th>
@@ -91,24 +105,22 @@
                                             @else
                                                 <p class="text-success">Present</p>
                                             @endif
-
                                         @else
                                             <p class="text-danger">Absent</p>
                                         @endif
                                     @endif
-                                </td>   
+                                </td>
 
                                 <td class="halfday-row" style="display:none;">
                                     @if ($CanHalfDay->contains($employee) && $employee->attendance->where('is_half_day', 1)->count() < 2)
-                                    <div class="form-check form-halfday d-inline-block">
-                                        <input class="form-check-input attendance-halfday" type="checkbox"
-                                            name="is_half_day" value="1"
-                                            id="attendanceSwitch_{{ $loop->index }}"
-                                            onchange="handleHalfDayChange(this)">
-                                        <label class="form-check-label"
-                                            for="attendanceHalfday_{{ $loop->index }}"></label>
-                                    </div>
-                                    
+                                        <div class="form-check form-halfday d-inline-block">
+                                            <input class="form-check-input attendance-halfday" type="checkbox"
+                                                name="is_half_day" value="1"
+                                                id="attendanceSwitch_{{ $loop->index }}"
+                                                onchange="handleHalfDayChange(this)">
+                                            {{-- <label class="form-check-label" id="halfdaylabel"
+                                                for="attendanceHalfday_{{ $loop->index }}">1/2</label> --}}
+                                        </div>
                                     @else
                                         <p>NA</p>
                                     @endif
@@ -162,11 +174,13 @@
                 overtimeHeader.style.display = 'none';
             } else {
                 overtimeRow.style.display = 'table-cell';
-                overtimeHeader.style.display = 'table-cell';
+                overtimeHeader.style.display = 'table-cell';  
             }
         }
     </script>
     
+    
+
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
