@@ -122,7 +122,7 @@
                                                 for="attendanceHalfday_{{ $loop->index }}">1/2</label> --}}
                                         </div>
                                     @else
-                                        <p>NA</p>
+                                        <h5>👎</h5>
                                     @endif
                                 </td>
 
