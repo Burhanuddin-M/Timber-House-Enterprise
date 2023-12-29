@@ -8,6 +8,7 @@ use App\Http\Controllers\MyController;
 use App\Http\Controllers\UniqueController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\CalculatorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,10 +34,22 @@ Route::get('/dashboard',[MyController::class,'dashboard'])->name('dashboard');
 
 
 
-//All the routes of the Attendence Moduleattendence
+//All the routes of the Calculator Moduleattendence
 Route::get('/calculator/index', function () {
     return view('calculator.index');
 })->name('calculator.index');
+
+
+Route::get('/calculator/cut_size', function () {
+    return view('calculator.cut_size');
+});
+
+Route::get('/calculator/wood_log', function () {
+    return view('calculator.wood_log');
+});
+Route::post('/submit-form',[CalculatorController::class,'SubmitForm'])->name('calculate');
+
+Route::post('/submit-form2',[CalculatorController::class,'SubmitForm2'])->name('calculate2');
 
 
 
