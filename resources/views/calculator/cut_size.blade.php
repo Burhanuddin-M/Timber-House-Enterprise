@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>Bootstrap Form in Table</title>
     <style>
+       
         /* Add some additional styling for better mobile display */
         body {
             padding-top: 20px;
@@ -59,26 +60,27 @@
                 <div class="form-group col-12 col-md-12">
                     <div class="row">
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" name="name" id="name" placeholder="Name" required>
+                            <input type="text" class="form-control" name="name" id="name" placeholder="Name"
+                                required>
                         </div>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" name="place" id="place" placeholder="Place" required>
+                            <input type="text" class="form-control" name="place" id="place" placeholder="Place"
+                                required>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <table class="table">
+            <table class="table-responsive">
                 <thead>
                     <tr>
-                        <th>Sr. No.</th>
-                        <th>Length</th>
-                        <th>Breadth</th>
-                        <th>Width</th>
-                        <th>action</th>
-                        <th>delete</th>
+                        <th>No</th>
+                        <th class="text-center">L</th>
+                        <th class="text-center">B</th>
+                        <th class="text-center">W</th>
+                        <th class="text-center" colspan="2">action</th>
                     </tr>
-                </thead>
+                </thead>    
                 <tbody id="dataTable">
                     <!-- Existing rows or dynamically added rows will go here -->
                 </tbody>
@@ -96,11 +98,14 @@
           <td><input type="number" name="breadth[]" placeholder="" required></td>
           <td><input type="number" name="width[]" placeholder="" required></td>
           <td>
-            <button type="button" class="btn btn-success btn-block" onclick="saveRow(this)">Save</button>
+            <button type="button" class="btn btn-sm btn-success btn-block" onclick="saveRow(this)">S</button>
             </td>
             <td>
 
-                <button type="button" class="btn btn-danger btn-block" onclick="deleteRow(this)">Delete</button>
+                <button type="button" class="btn btn-sm btn-danger btn-block" onclick="deleteRow(this)">
+    <i class="fas fa-trash-alt"></i> 🗑
+</button>
+
                 </td>
         `;
                     dataTable.appendChild(newRow);
@@ -126,7 +131,7 @@
                             inputs[i].disabled = !inputs[i].disabled;
                         }
 
-                        saveButton.innerText = 'Edit';
+                        saveButton.innerText = 'E';
                         deleteButton.style.display = 'block';
                     } else {
                         alert('Please enter data in the row before saving.');
