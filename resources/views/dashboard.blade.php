@@ -94,10 +94,27 @@
 <body>
 
     <div class="container">
-        <h1>Timer House Enterprise</h1>
 
         <div class="row mt-4">
             <!-- Documents Module Card -->
+            <!-- Calculator Module Card -->
+            <div class="col-md-6">
+                <div class="card">
+                    <img src="https://cdn1.byjus.com/wp-content/uploads/2020/01/Online-free-math-calculator.jpg" height="200px"  alt="Products Image">
+                    <div class="card-body text-center">
+                        <a href="{{route('calculator.index')}}"" class="btn btn-primary">CFT Calculator</a>
+                    </div>
+                </div>
+            </div>
+             <!-- Attendence Module Card -->
+             <div class="col-md-6">
+                <div class="card">
+                    <img src="https://thumbs.dreamstime.com/b/woman-hand-writing-attendance-marker-blue-background-professionally-79573891.jpg" class="card-img-top img-fluid" height="200px" width="200px" alt="Products Image">
+                    <div class="card-body text-center">
+                        <a href="{{route('attendence.index')}}" class="btn btn-primary">Employee attendence</a>
+                    </div>
+                </div>
+            </div>
             <div class="col-md-6">
                 <div class="card">
                     <img src="https://media.istockphoto.com/id/868379756/vector/document-or-letter-with-a-seal-vector-illustration-of-a-flat-style-with-shadow-isolated-on-a.jpg?s=612x612&w=0&k=20&c=Qj3GtMmorCEUoHqj2NYfUCBER8140m3Ai1kzPBw6noI=" height="200px" width="200px" class="card-img-top img-fuild" alt="Documents Image">
@@ -117,25 +134,8 @@
                 </div>
             </div>
 
-            <!-- Attendence Module Card -->
-            <div class="col-md-6">
-                <div class="card">
-                    <img src="https://thumbs.dreamstime.com/b/woman-hand-writing-attendance-marker-blue-background-professionally-79573891.jpg" class="card-img-top img-fluid" height="200px" width="200px" alt="Products Image">
-                    <div class="card-body text-center">
-                        <a href="{{route('attendence.index')}}" class="btn btn-primary">Employee attendence</a>
-                    </div>
-                </div>
-            </div>
+           
 
-            <!-- Calculator Module Card -->
-            <div class="col-md-6">
-                <div class="card">
-                    <img src="https://cdn1.byjus.com/wp-content/uploads/2020/01/Online-free-math-calculator.jpg" height="200px"  alt="Products Image">
-                    <div class="card-body text-center">
-                        <a href="{{route('calculator.index')}}"" class="btn btn-primary">CFT Calculator</a>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
