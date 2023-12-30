@@ -121,7 +121,7 @@
                     var deleteButton = row.querySelector('.btn-danger');
 
                     // Check if any input field in the row has a value
-                    var hasContent = Array.from(inputs).some(input => input.value.trim() !== '');
+                    var hasContent = Array.from(inputs).every(input => input.value.trim() !== '');
 
                     if (hasContent) {
                         if (saveButton.innerText === 'Save') {
