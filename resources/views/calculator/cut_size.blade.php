@@ -75,7 +75,8 @@
                         <th>Length</th>
                         <th>Breadth</th>
                         <th>Width</th>
-                        <th>Action</th>
+                        <th>action</th>
+                        <th>delete</th>
                     </tr>
                 </thead>
                 <tbody id="dataTable">
@@ -96,8 +97,11 @@
           <td><input type="number" name="width[]" placeholder="" required></td>
           <td>
             <button type="button" class="btn btn-success btn-block" onclick="saveRow(this)">Save</button>
-            <button type="button" class="btn btn-danger btn-block" onclick="deleteRow(this)">Delete</button>
-          </td>
+            </td>
+            <td>
+
+                <button type="button" class="btn btn-danger btn-block" onclick="deleteRow(this)">Delete</button>
+                </td>
         `;
                     dataTable.appendChild(newRow);
                     serialNumber++;
