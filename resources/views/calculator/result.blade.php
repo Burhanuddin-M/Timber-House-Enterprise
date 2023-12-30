@@ -61,6 +61,8 @@
 
 <body>
     <div class="container mt-4">
+        <!-- Back button -->
+        <a href="{{ url()->previous() }}" class="btn btn-primary">New</a>
         @if(!$name == '' && !$place == '')
 
         <h3 class="text-center">

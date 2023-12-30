@@ -48,6 +48,8 @@
 </head>
 
 <body>
+    <!-- Back button -->
+    <a href="{{ route('calculator.index') }}" class="btn btn-primary">Back</a>
 
     <form action="{{ route('calculate') }}" method="POST" id="myForm">
         @csrf
@@ -94,9 +96,9 @@
                     var newRow = document.createElement('tr');
                     newRow.innerHTML = `
           <td>${serialNumber}</td>
-          <td><input  type="number" name="length[]" placeholder="" required></td>
-          <td><input type="number" name="breadth[]" placeholder="" required></td>
-          <td><input type="number" name="width[]" placeholder="" required></td>
+          <td><input class="form-control"  type="number" name="length[]" placeholder="" required></td>
+          <td><input class="form-control" type="number" name="breadth[]" placeholder="" required></td>
+          <td><input class="form-control" type="number" name="width[]" placeholder="" required></td>
           <td>
             <button type="button" class="btn btn-sm btn-success btn-block" onclick="saveRow(this)">Save</button>
             </td>
