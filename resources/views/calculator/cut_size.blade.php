@@ -98,7 +98,7 @@
           <td><input type="number" name="breadth[]" placeholder="" required></td>
           <td><input type="number" name="width[]" placeholder="" required></td>
           <td>
-            <button type="button" class="btn btn-sm btn-success btn-block" onclick="saveRow(this)">S</button>
+            <button type="button" class="btn btn-sm btn-success btn-block" onclick="saveRow(this)">Save</button>
             </td>
             <td>
 

@@ -6,14 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Button Example</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Add custom styles here if needed */
+        body {
+            padding: 15px;
+        }
+    </style>
 </head>
 
 <body>
 
-    <div class="container mt-5">
+    <div class="container-fluid mt-5">
 
-        <a href="/calculator/cut_size" class="btn btn-primary mr-2">Cut Size</a>
-        <a href="/calculator/wood_log" class="btn btn-success">Wood Log</a>
+        <div class="row">
+            <div class="col-12 mb-3">
+                <a href="/calculator/cut_size" class="btn btn-primary btn-block">Cut Size</a>
+            </div>
+            <div class="col-12">
+                <a href="/calculator/wood_log" class="btn btn-success btn-block">Wood Log</a>
+            </div>
+            <!-- Add another element here if needed -->
+        </div>
 
     </div>
 

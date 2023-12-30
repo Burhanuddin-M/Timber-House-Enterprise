@@ -12,29 +12,27 @@
 
     <style>
         body {
-            padding-top: 20px;
+            /* padding-top: 20px; */
             font-size: 14px;
-            background-color: #f8f9fa; /* Light gray background */
-            color: #495057; /* Dark text color */
+            background-color: #f8f9fa;
+            color: #495057;
         }
 
         .container {
-            padding: 20px;
+            /* padding: 20px; */
             overflow-x: auto;
-            background-color: #ffffff; /* White container background */
-            border-radius: 10px; /* Rounded corners */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle lift */
+            /* background-color: #ffffff; */
+            /* border-radius: 10px; */
+            /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
         }
 
-        h1, h2 {
-            color: #007bff; /* Blue header text color */
-        }
+       
 
         th, td {
             text-align: center;
             padding: 8px;
             border: 1px solid #ddd;
-            background-color: #ffffff; /* White table cells */
+            background-color: #ffffff;
         }
 
         .table-responsive {
@@ -43,17 +41,15 @@
 
         @media only screen and (max-width: 600px) {
             body {
-                padding-top: 10px;
+                /* padding-top: 10px; */
                 font-size: 12px;
             }
 
             .container {
-                padding: 10px;
+                /* padding: 10px; */
             }
 
-            h1, h2 {
-                font-size: 18px;
-            }
+        
 
             th, td {
                 font-size: 10px;
@@ -64,21 +60,21 @@
 </head>
 
 <body>
-    <div class="container mt-5">
+    <div class="container mt-4">
+        @if(!$name == '' && !$place == '')
 
-        
-            <h3 class="text-center">
-                {{ $name }} at {{ $place }}
-            </h3>
-        
+        <h3 class="text-center">
+            {{ $name }} at {{ $place }}
+        </h3>
+        @endif
         <div class="table-responsive">
             <table id="resultTable" class="table table-bordered">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>L</th>
-                        <th>B</th>
-                        <th>W</th>
+                        <th>Length</th>
+                        <th>Breadth</th>
+                        <th>Width</th>
                         <th>Area</th>
                     </tr>
                 </thead>
@@ -96,7 +92,7 @@
                 <tfoot>
                     <tr>
                         <td colspan="4" class="text-right">Answer</td>
-                        <td class="text-center"><h5>{{ number_format($totalArea, 2) }}</h5></td>
+                        <td class="text-center"><strong style="font-size:12px;" class="text-center">{{ number_format($totalArea, 2) }}</strong></td>
                     </tr>
                 </tfoot>
             </table>
@@ -114,15 +110,23 @@
 
     <script>
         $(document).ready(function () {
-            $('#resultTable').DataTable({
+            var table = $('#resultTable').DataTable({
                 responsive: true,
                 dom: 'Bfrtip',
                 buttons: [
-                    'copy', 'csv', 'excel', 'pdf', 'print'
+                    'copy', 'csv', 'excel', 'pdf', {
+                        extend: 'print',
+                        customize: function (win) {
+                            $(win.document.body).addClass('white-bg');
+                            $(win.document.body).css('color', '#777');
+                            $(win.document.body).find('table').addClass('compact').css('font-size', 'inherit');
+                        }
+                    }
                 ],
-                searching: false, // Disable search feature
-                paging: false, // Disable pagination
-                info: false // Disable showing "1 of 1 entries" information
+                searching: false,
+                paging: false,
+                info: false,
+                ordering:false
             });
         });
     </script>
