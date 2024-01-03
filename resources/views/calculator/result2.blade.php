@@ -64,15 +64,17 @@
 
     <script>
         $(document).ready(function () {
-            // Initialize DataTable with Buttons
+            // Initialize DataTable without paging
             $('#resultTable').DataTable({
+                paging: false,
                 dom: 'Bfrtip',
                 buttons: [
-                  'pdf'
+                    'pdf'
                 ]
             });
         });
     </script>
+    
 
     <!-- Add any additional scripts if needed -->
 </body>

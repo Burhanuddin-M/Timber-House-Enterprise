@@ -123,7 +123,7 @@
 
                                                 <div class="mb-3">
                                                     <label for="contact" class="form-label">Contact No</label>
-                                                    <input type="number" class="form-control" id="contact_no"
+                                                    <input type="text" class="form-control" id="contact_no"
                                                         value="{{ $employee->contact_no }}" name="contact_no">
                                                 </div>
 

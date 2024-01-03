@@ -139,6 +139,7 @@
                                             <option value="{{ $value }}">{{ $value }}</option>
                                         @endfor
                                     </select>
+                              
                                 </td>
 
                                 <td>

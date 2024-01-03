@@ -127,20 +127,21 @@
             </table>
         </div>
     </div>
-
     <script>
-        $(document).ready(function() {
-            // Initialize DataTable
+        $(document).ready(function () {
+            // Initialize DataTable without paging
             var dataTable = $('#example').DataTable({
                 responsive: true,
                 columnDefs: [{
                     targets: [0, 3],
                     orderable: false
                 }],
-                order: []
+                order: [],
+                paging: false  // Disable paging
             });
         });
     </script>
+    
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
