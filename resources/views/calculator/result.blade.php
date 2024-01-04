@@ -30,10 +30,10 @@
         <table id="resultTable" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
-                    <th>Sr. No.</th>
-                    <th>Length</th>
-                    <th>Breath</th>
-                    <th>Width</th>
+                    <th>No</th>
+                    <th>L</th>
+                    <th>B</th>
+                    <th>W</th>
                     <th>Area</th>
                 </tr>
             </thead>
@@ -75,9 +75,10 @@
 
     <script>
         $(document).ready(function() {
-            // Initialize DataTable without paging
+            // Initialize DataTable without paging and search
             $('#resultTable').DataTable({
                 paging: false,
+                searching: false, // Disable search
                 dom: 'Bfrtip',
                 buttons: [
                     'pdf'
@@ -85,6 +86,8 @@
             });
         });
     </script>
+    
+    
 
 
     <!-- Add any additional scripts if needed -->
