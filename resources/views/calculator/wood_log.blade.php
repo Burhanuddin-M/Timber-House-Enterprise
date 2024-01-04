@@ -90,8 +90,8 @@
                     var newRow = document.createElement('tr');
                     newRow.innerHTML = `
                         <td>${serialNumber}</td>
-                        <td><input type="number" name="length[]" placeholder="Length" required></td>
-                        <td><input type="number" name="diameter[]" placeholder="Diameter" required></td>
+                        <td><input class="form-control" type="number" name="length[]"  required></td>
+                        <td><input class="form-control" type="number" name="diameter[]"  required></td>
                         <td>
                             <button type="button" class="btn btn-sm btn btn-success btn-block" onclick="saveRow(this)">Save</button>
                         </td>
@@ -110,7 +110,7 @@
                     var deleteButton = row.querySelector('.btn-danger');
 
                     // Check if any input field in the row has a value
-                    var hasContent = Array.from(inputs).some(input => input.value.trim() !== '');
+                    var hasContent = Array.from(inputs).every(input => input.value.trim() !== '');
 
                     if (hasContent) {
                         if (saveButton.innerText === 'Save') {

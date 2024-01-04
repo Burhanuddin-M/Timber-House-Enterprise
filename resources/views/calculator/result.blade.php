@@ -17,6 +17,7 @@
 <body>
 
     <div class="container mt-3">
+        <br>
         <!-- Back button -->
         <a href="{{ url()->previous() }}" class="btn btn-primary">New</a>
         @if (!$name == '' && !$place == '')
