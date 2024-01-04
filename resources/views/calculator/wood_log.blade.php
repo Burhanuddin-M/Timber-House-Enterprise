@@ -68,13 +68,13 @@
                 </div>
             </div>
 
-            <table class="table">
+            <table class="table table-responsive">
                 <thead>
                     <tr>
-                        <th>Sr. No.</th>
+                        <th>No</th>
                         <th>Length</th>
                         <th>Diameter</th>
-                        <th>Action</th>
+                        <th class="text-center" colspan="2">action</th>
                     </tr>
                 </thead>
                 <tbody id="dataTable">
@@ -93,8 +93,10 @@
                         <td><input type="number" name="length[]" placeholder="Length" required></td>
                         <td><input type="number" name="diameter[]" placeholder="Diameter" required></td>
                         <td>
-                            <button type="button" class="btn btn-success btn-block" onclick="saveRow(this)">Save</button>
-                            <button type="button" class="btn btn-danger btn-block" onclick="deleteRow(this)">Delete</button>
+                            <button type="button" class="btn btn-sm btn btn-success btn-block" onclick="saveRow(this)">Save</button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-sm btn btn-danger btn-block" onclick="deleteRow(this)">Delete</button>
                         </td>
                     `;
                     dataTable.appendChild(newRow);
