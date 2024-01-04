@@ -94,6 +94,8 @@ Route::get('/attendece/report/{id}', [UniqueController::class, 'specificreport']
 //Final Report
 Route::get('/attendece/myreport/{id}', [UniqueController::class, 'finalreport'])->name('report.final');
 
+//Final Report
+Route::get('/attendece/myreportfinal/{id}', [UniqueController::class, 'myreport'])->name('report.myreport');
 
 
 

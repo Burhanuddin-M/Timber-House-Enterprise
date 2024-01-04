@@ -1,7 +1,4 @@
-@extends('layout.app')
-
-@section('content')
-    <!DOCTYPE html>
+   <!DOCTYPE html>
     <html lang="en">
 
     <head>
@@ -102,12 +99,8 @@
     <body>
 
         <div class="container">
-            
-            <button class="btn btn-primary btn-block">
-                <a href="{{ route('attendence.index') }}" class="text-white text-decoration-none">Back</a>
-            </button><br>
 
-            <h2 class="text-center text-primary">{{ $employeeData->name }}'s Report</h2>
+            <h2 class="text-center">{{ $employeeData->name }}'s Report</h2>
             <div class="table-responsive">
                 <table id="example" class="display nowrap">
                     <thead>
@@ -188,72 +181,8 @@
                         </tr>
                     </tfoot>
                 </table>
-                <div class="mt-3">
-                    <button id="shareToWhatsApp" class="btn btn-success">Share to WhatsApp</button>
-                </div>
             </div>
         </div>
-       
-        <script>
-            $(document).ready(function() {
-    $('#example').DataTable({
-        dom: 'Bfrtip',
-        buttons: [{
-                extend: 'pdf',
-                footer: true,
-                text: 'DOWNLOAD AS A PDF',
-                className: 'btn-pdf',
-                filename: 'Report_of_{{ $employeeData->name }}_{{ $date }}', // Custom filename
-                customize: function(doc) {
-                    // Add custom header to the PDF
-                    doc.content.unshift({
-                        text: 'Report of ' + '{{ $employeeData->name }}' +
-                            ' as per ' + '{{ $date }}',
-                        margin: [15, 15, 0, 0],
-                        fontSize: 12,
-                        bold: true
-                    });
-                }
-            },
-            {
-                extend: 'print',
-                text: 'CLICK TO PRINT',
-                className: 'btn-print',
-                customize: function(win) {
-                    // Add custom header to the print version
-                    $(win.document.body).find('h2').text('Employee Report - ' +
-                        '{{ $employeeData->name }}');
-                }
-            }
-        ],
-        searching: false, // Disable search feature
-        pageLength: -1, // Display all records initially
-        footer: true,
-        ordering: false,
-    });
-});
-
-        </script>
-
-
-<script>
-    // Function to handle WhatsApp sharing with a specific link
-    function shareToWhatsApp() {
-        // Replace {id} with the actual value you want to include
-        var id = {{$employeeData->id}};
-        var date = '{{$date}}'; // Replace with the actual date or retrieve it dynamically
-        var specificLink = 'https://scruxoman.com/attendece/myreportfinal/' + id + '?date=' + date;
-
-        // Create a WhatsApp share link with the specified URL
-        var whatsappLink = 'https://api.whatsapp.com/send?text=' + encodeURIComponent(specificLink);
-
-        // Open the WhatsApp share link in a new window or tab
-        window.open(whatsappLink, '_blank');
-    }
-
-    // Attach click event to the "Share to WhatsApp" button
-    document.getElementById('shareToWhatsApp').addEventListener('click', shareToWhatsApp);
-</script>
 
 
 
@@ -261,5 +190,3 @@
     </body>
 
     </html>
-
-@endsection
