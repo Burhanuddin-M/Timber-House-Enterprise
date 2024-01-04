@@ -10,11 +10,20 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" type="text/css"
         href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.bootstrap4.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Result</title>
     <!-- Add any additional styles or scripts if needed -->
 </head>
 
 <body>
+
+    <script>
+        Swal.fire({
+            title: "Calculated!",
+            text: "Now, You can Download!",
+            icon: "success"
+        });
+    </script>
 
     <div class="container mt-3">
         <br>

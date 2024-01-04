@@ -11,10 +11,19 @@
     <link rel="stylesheet" type="text/css"
         href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.bootstrap4.min.css">
     <title>Result</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Add any additional styles or scripts if needed -->
 </head>
 
 <body>
+
+    <script>
+        Swal.fire({
+            title: "Calculated!",
+            text: "Now, You can Download!",
+            icon: "success"
+        });
+    </script>
 
     <div class="container mt-3">
         <br>
@@ -87,8 +96,8 @@
             });
         });
     </script>
-    
-    
+
+
 
 
     <!-- Add any additional scripts if needed -->
