@@ -14,7 +14,7 @@
     .form-check.form-halfday {
         display: flex;
         align-items: center;
-        margin:0px auto;
+        margin: 0px auto;
         /* Vertically center items */
     }
 
@@ -42,6 +42,16 @@
                 Swal.fire({
                     title: "Marked!",
                     text: "{{ session('success') }}",
+                    icon: "success"
+                });
+            </script>
+        @endif
+
+        @if (session('undo'))
+            <script>
+                Swal.fire({
+                    title: "Unmarked!",
+                    text: "{{ session('undo') }}",
                     icon: "success"
                 });
             </script>
@@ -101,12 +111,18 @@
                                     @else
                                         @if ($employee->attendance[0]->type == 'PRESENT')
                                             @if ($employee->attendance[0]->is_half_day)
-                                                <p class="text-dark">1/2</p>
+                                                <p class="text-danger">1/2 <a
+                                                        href="{{ route('transaction.undo', ['id' => $employee->id]) }}"
+                                                        type="button" class="text-decoration-none">&nbsp; Undo</a></p>
                                             @else
-                                                <p class="text-success">Present</p>
+                                                <p class="text-success">Present <a
+                                                        href="{{ route('transaction.undo', ['id' => $employee->id]) }}"
+                                                        type="button" class="text-decoration-none">&nbsp; Undo</a></p>
                                             @endif
                                         @else
-                                            <p class="text-danger">Absent</p>
+                                            <p class="text-danger">Absent <a
+                                                    href="{{ route('transaction.undo', ['id' => $employee->id]) }}"
+                                                    type="button" class="text-decoration-none">&nbsp; Undo</a></p>
                                         @endif
                                     @endif
                                 </td>
@@ -139,7 +155,7 @@
                                             <option value="{{ $value }}">{{ $value }}</option>
                                         @endfor
                                     </select>
-                              
+
                                 </td>
 
                                 <td>
@@ -169,18 +185,18 @@
         function handleHalfDayChange(checkbox) {
             let overtimeRow = checkbox.closest('tr').querySelector('.overtime-row');
             let overtimeHeader = document.querySelector('.overtime-header');
-    
+
             if (checkbox.checked) {
                 overtimeRow.style.display = 'none';
                 overtimeHeader.style.display = 'none';
             } else {
                 overtimeRow.style.display = 'table-cell';
-                overtimeHeader.style.display = 'table-cell';  
+                overtimeHeader.style.display = 'table-cell';
             }
         }
     </script>
-    
-    
+
+
 
 
     <script>

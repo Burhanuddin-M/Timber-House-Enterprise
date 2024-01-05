@@ -95,4 +95,30 @@ $CanHalfDay = Employee::with(['attendance' => function ($query) use ($now) {
         $message = $employee->name . ' attendance is updated';
         return redirect('/attendence/getattendence')->with('success', $message);
     }
+
+
+    //Undo the Employee Attendence
+    public function undoAttendence(Request $request, $id)
+{
+    $employee = Employee::find($id);
+
+    $formattedDate = Carbon::now()->toDateString();
+
+    // Delete attendance record
+    $attendance = $employee->attendance()->where('date', $formattedDate)->first();
+    if ($attendance) {
+        $attendance->delete();
+    }
+
+    // Delete credit and debit transactions for the current date
+    $employee->transactions()->whereDate('created_at', $formattedDate)
+        ->whereIn('type', ['credit', 'debit'])
+        ->delete();
+
+    $message = $employee->name . " attendance " . $formattedDate . " have been Undo.";
+
+    return redirect('/attendence/getattendence')->with('undo', $message);
+}
+
+    
 }

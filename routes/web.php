@@ -85,6 +85,9 @@ Route::post('/attendenceget/{id}', [AttendanceController::class, 'attendencePost
 //Attendence
 Route::get('/attendence/transaction', [TransactionController::class, 'showtransaction'])->name('transaction.show');
 
+//Undo attendence
+Route::get('/attendence/undo/{id}', [AttendanceController::class, 'undoAttendence'])->name('transaction.undo');
+
 //Report
 Route::get('/attendece/report', [UniqueController::class, 'showreport'])->name('reports.show');
 
