@@ -115,6 +115,9 @@ $CanHalfDay = Employee::with(['attendance' => function ($query) use ($now) {
         ->whereIn('type', ['credit', 'debit'])
         ->delete();
 
+    $employee->amount_portfolio = Employee::calculatePortfolio($employee);
+    $employee->save();
+
     $message = $employee->name . " attendance " . $formattedDate . " have been Undo.";
 
     return redirect('/attendence/getattendence')->with('undo', $message);

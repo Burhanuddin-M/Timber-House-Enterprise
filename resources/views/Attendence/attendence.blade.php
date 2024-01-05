@@ -111,18 +111,22 @@
                                     @else
                                         @if ($employee->attendance[0]->type == 'PRESENT')
                                             @if ($employee->attendance[0]->is_half_day)
-                                                <p class="text-danger">1/2 <a
-                                                        href="{{ route('transaction.undo', ['id' => $employee->id]) }}"
-                                                        type="button" class="text-decoration-none">&nbsp; Undo</a></p>
+                                            <p class="text-danger">
+                                                1/2 
+                                                <a href="{{ route('transaction.undo', ['id' => $employee->id]) }}" type="button" class="text-decoration-none">
+                                                    <i class="fas fa-undo"></i>&nbsp;
+                                                </a>
+                                            </p>
+                                            
                                             @else
                                                 <p class="text-success">Present <a
                                                         href="{{ route('transaction.undo', ['id' => $employee->id]) }}"
-                                                        type="button" class="text-decoration-none">&nbsp; Undo</a></p>
+                                                        type="button" class="text-decoration-none">&nbsp; </a></p>
                                             @endif
                                         @else
                                             <p class="text-danger">Absent <a
                                                     href="{{ route('transaction.undo', ['id' => $employee->id]) }}"
-                                                    type="button" class="text-decoration-none">&nbsp; Undo</a></p>
+                                                    type="button" class="text-decoration-none">&nbsp; </a></p>
                                         @endif
                                     @endif
                                 </td>
