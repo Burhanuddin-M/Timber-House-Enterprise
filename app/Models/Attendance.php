@@ -114,19 +114,19 @@
                                             <p class="text-danger">
                                                 1/2 
                                                 <a href="{{ route('transaction.undo', ['id' => $employee->id]) }}" type="button" class="text-decoration-none">
-                                                    <i class="fas fa-undo"></i>&nbsp; Undo
+                                                    <i class="fas fa-undo"></i>
                                                 </a>
                                             </p>
                                             
                                             @else
-                                                <p class="text-success">Present <a
-                                                        href="{{ route('transaction.undo', ['id' => $employee->id]) }}"
-                                                        type="button" class="text-decoration-none">&nbsp; Undo</a></p>
+                                                <p class="text-success">Present <a href="{{ route('transaction.undo', ['id' => $employee->id]) }}" type="button" class="text-decoration-none">
+                                                    <i class="fas fa-undo"></i>
+                                                </a></p>
                                             @endif
                                         @else
-                                            <p class="text-danger">Absent <a
-                                                    href="{{ route('transaction.undo', ['id' => $employee->id]) }}"
-                                                    type="button" class="text-decoration-none">&nbsp; Undo</a></p>
+                                            <p class="text-danger">Absent <a href="{{ route('transaction.undo', ['id' => $employee->id]) }}" type="button" class="text-decoration-none">
+                                                    <i class="fas fa-undo"></i>
+                                                </a></p>
                                         @endif
                                     @endif
                                 </td>
