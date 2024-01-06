@@ -47,6 +47,14 @@ $CanHalfDay = Employee::with(['attendance' => function ($query) use ($now) {
 
         $formattedDate = Carbon::now()->toDateString();
 
+    $existingAttendance = Attendance::where('employee_id', $id)
+    ->where('date', $formattedDate)
+    ->first();
+
+if ($existingAttendance) {
+    return redirect('/attendence/getattendence')->with('error', 'Attendance for ' . $employee->name . ' already exists for today.');
+}
+
         if ($request->has('attendance')) {
             $attendance = Attendance::create([
                 'employee_id' => $id,

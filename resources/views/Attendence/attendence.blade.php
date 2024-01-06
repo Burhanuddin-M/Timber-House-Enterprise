@@ -33,7 +33,7 @@
                 <a href="{{ route('attendence.index') }}" class="text-white text-decoration-none">←</a>
             </button>
             <div class="text-center">
-                <h1>{{ \Carbon\Carbon::now()->format('jS F') }} Attendance</h3>
+                <h1>{{ \Carbon\Carbon::now()->format('jS F') }}</h3>
             </div>
         </div><br>
 
@@ -52,6 +52,16 @@
                 Swal.fire({
                     title: "Unmarked!",
                     text: "{{ session('undo') }}",
+                    icon: "success"
+                });
+            </script>
+        @endif
+
+        @if (session('error'))
+            <script>
+                Swal.fire({
+                    title: "Already Marked!",
+                    text: "{{ session('error') }}",
                     icon: "success"
                 });
             </script>
@@ -114,19 +124,19 @@
                                             <p class="text-danger">
                                                 1/2 
                                                 <a href="{{ route('transaction.undo', ['id' => $employee->id]) }}" type="button" class="text-decoration-none">
-                                                    <i class="fas fa-undo"></i>&nbsp;
+                                                    <i class="fas fa-undo"></i>
                                                 </a>
                                             </p>
                                             
                                             @else
-                                                <p class="text-success">Present <a
-                                                        href="{{ route('transaction.undo', ['id' => $employee->id]) }}"
-                                                        type="button" class="text-decoration-none">&nbsp; </a></p>
+                                                <p class="text-success">Present <a href="{{ route('transaction.undo', ['id' => $employee->id]) }}" type="button" class="text-decoration-none">
+                                                    <i class="fas fa-undo"></i>
+                                                </a></p>
                                             @endif
                                         @else
-                                            <p class="text-danger">Absent <a
-                                                    href="{{ route('transaction.undo', ['id' => $employee->id]) }}"
-                                                    type="button" class="text-decoration-none">&nbsp; </a></p>
+                                            <p class="text-danger">Absent <a href="{{ route('transaction.undo', ['id' => $employee->id]) }}" type="button" class="text-decoration-none">
+                                                    <i class="fas fa-undo"></i>
+                                                </a></p>
                                         @endif
                                     @endif
                                 </td>
